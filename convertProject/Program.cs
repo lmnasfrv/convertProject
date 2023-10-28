@@ -1,4 +1,5 @@
 ﻿Console.OutputEncoding=System.Text.Encoding.UTF8;
+Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
 while (true)
 {
