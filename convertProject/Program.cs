@@ -1,37 +1,26 @@
 ﻿Console.OutputEncoding=System.Text.Encoding.UTF8;
 
-double deyerFunc()
-{
-    double deyer = 0;
-    while (true)
-    {
-        Console.WriteLine("Zəhmət olmasa dəyəri daxil edin:");
-        try
-        {
-            deyer = Convert.ToDouble(Console.ReadLine());
-            break;
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Gözlənilməz xəta baş verdi. Zəhmət olmasa düzgün dəyər daxil edin!");
-        }
-    }
-    return deyer;
-}
-
 while (true)
 {
     double netice = 0;
-    double inputDeyer = deyerFunc();
+    // Istifadeciden deyeri alan funksiya cagrilir
+    double inputDeyer = DeyerAl();
+
+	Console.WriteLine("0) Exit");
+	Console.WriteLine("1) Kg to t");
+    Console.WriteLine("2) Km to sm");
 
     Console.WriteLine("Zəhmət olmasa hansı çevirmə əməliyyatını yerinə yetirmək istədiyinizi seçin:");
     int cevirme_emeliyyati = Convert.ToInt32(Console.ReadLine());
 
     switch (cevirme_emeliyyati)
     {
+        case 0:
+            Console.WriteLine("Proqramı işlətdiyiniz təşəkkürlər");
+            return;
         case 1:
             Console.WriteLine("Kg to t");
-            netice = inputDeyer / 1000.0;
+            netice = inputDeyer / 1000.0;// Dustur tetbiq olunub
             Console.WriteLine($"{inputDeyer} kg ={netice} t");
             break;
         case 2:
@@ -49,11 +38,19 @@ while (true)
             break;
     }
 }
-
-
-
-
-
-
-
-
+// Bir nov oz TryParse i
+double DeyerAl()
+{
+    while (true)
+    {
+        Console.WriteLine("Zəhmət olmasa dəyəri daxil edin:");
+        try
+        {
+            return Convert.ToDouble(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Gözlənilməz xəta baş verdi. Zəhmət olmasa düzgün dəyər daxil edin!");
+        }
+    }
+}
